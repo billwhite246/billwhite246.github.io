@@ -24,6 +24,47 @@
   width: 52px;
 }
 
+/* 春节倒计时 */
+
+.gn_box {
+  border: none;
+  border-radius: 15px;
+  font-size: 22px;
+}
+
+.gn_box {
+  margin-top: 20px;
+  padding: 9px;
+/* 		margin: 10px; */
+/* 		margin-bottom: 20px; */
+  text-align: center;
+  background-color: #fff;
+}
+
+#t_d {
+  color: #982585;
+  font-size: 18px;
+}
+
+#t_h {
+  color: #8f79c1;
+  font-size: 18px;
+}
+
+#t_m {
+  color: #65b4b5;
+  font-size: 18px;
+}
+
+#t_s {
+  color: #83caa3;
+  font-size: 18px;
+}
+
+.gn_box h1 {
+  font-size: 25px;
+}
+
 /* #page-header {
   padding: 10px 36px;
   width: 100%;
@@ -2146,6 +2187,15 @@ blockquote footer cite:before {
   -webkit-background-size: cover;
   -moz-background-size: cover;
   background-size: cover;
+}
+#footer:before {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(0,0,0,0.5);
+  content: '';
 }
 #footer-wrap {
   position: relative;

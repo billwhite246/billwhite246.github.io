@@ -1,0 +1,263 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5"><title>OrangePi Zero嵌入式板搭建微服务网关[Ubuntu_Server1504+JDK1.8] | Bill's blog</title><meta name="description" content="OrangePi Zero嵌入式板搭建微服务网关[Ubuntu_Server1504+JDK1.8]"><meta name="keywords" content="OrangePi"><meta name="author" content="Bill"><meta name="copyright" content="Bill"><meta name="format-detection" content="telephone=no"><link rel="shortcut icon" href="/img/favicon.ico"><link rel="preconnect" href="//cdn.jsdelivr.net"><link rel="preconnect" href="http://ta.qq.com"><link rel="preconnect" href="https://fonts.googleapis.com" crossorigin><link rel="preconnect" href="//busuanzi.ibruce.info"><meta name="twitter:card" content="summary"><meta name="twitter:title" content="OrangePi Zero嵌入式板搭建微服务网关[Ubuntu_Server1504+JDK1.8]"><meta name="twitter:description" content="OrangePi Zero嵌入式板搭建微服务网关[Ubuntu_Server1504+JDK1.8]"><meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/billwhite246/myPicBedRepo@master/img/20200309195907.png"><meta property="og:type" content="article"><meta property="og:title" content="OrangePi Zero嵌入式板搭建微服务网关[Ubuntu_Server1504+JDK1.8]"><meta property="og:url" content="http://blog.webpro.ltd/2019/05/26/OrangePi-Zero-run-springboot/"><meta property="og:site_name" content="Bill's blog"><meta property="og:description" content="OrangePi Zero嵌入式板搭建微服务网关[Ubuntu_Server1504+JDK1.8]"><meta property="og:image" content="https://cdn.jsdelivr.net/gh/billwhite246/myPicBedRepo@master/img/20200309195907.png"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><script src="https://cdn.jsdelivr.net/npm/js-cookie/dist/js.cookie.min.js"></script><script>const autoChangeMode = 'true'
+var t = Cookies.get("theme");
+if (autoChangeMode == '1'){
+const isDarkMode = window.matchMedia("(prefers-color-scheme: dark)").matches
+const isLightMode = window.matchMedia("(prefers-color-scheme: light)").matches
+const isNotSpecified = window.matchMedia("(prefers-color-scheme: no-preference)").matches
+const hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified
+
+if (t === undefined){
+  if (isLightMode) activateLightMode()
+  else if (isDarkMode) activateDarkMode()
+  else if (isNotSpecified || hasNoSupport){
+    console.log('You specified no preference for a color scheme or your browser does not support it. I Schedule dark mode during night time.')
+    now = new Date();
+    hour = now.getHours();
+    isNight = hour < 6 || hour >= 18
+    isNight ? activateDarkMode() : activateLightMode()
+}
+} else if (t == 'light') activateLightMode()
+else activateDarkMode()
+
+
+} else if (autoChangeMode == '2'){
+  now = new Date();
+  hour = now.getHours();
+  isNight = hour < 6 || hour >= 18
+  if(t === undefined) isNight? activateDarkMode() : activateLightMode()
+  else if (t === 'light') activateLightMode()
+  else activateDarkMode() 
+} else {
+  if ( t == 'dark' ) activateDarkMode()
+  else if ( t == 'light') activateLightMode()
+}
+
+function activateDarkMode(){
+  document.documentElement.setAttribute('data-theme', 'dark')
+  if (document.querySelector('meta[name="theme-color"]') !== null){
+    document.querySelector('meta[name="theme-color"]').setAttribute('content','#000')
+  }
+}
+function activateLightMode(){
+  document.documentElement.setAttribute('data-theme', 'light')
+  if (document.querySelector('meta[name="theme-color"]') !== null){
+  document.querySelector('meta[name="theme-color"]').setAttribute('content','#fff')
+  }
+}</script><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@latest/css/font-awesome.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css"><link rel="canonical" href="http://blog.webpro.ltd/2019/05/26/OrangePi-Zero-run-springboot/"><link rel="prev" title="Linux c 程序设计考试 复习" href="http://blog.webpro.ltd/2019/08/09/Linux-c-review1/"><link rel="next" title="springboot快速入门" href="http://blog.webpro.ltd/2019/02/21/springboot-fast-study/"><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/gitalk/dist/gitalk.min.css"><script src="https://cdn.jsdelivr.net/npm/gitalk@latest/dist/gitalk.min.js"></script><script src="https://cdn.jsdelivr.net/npm/blueimp-md5@2.10.0/js/md5.min.js"></script><script src="http://tajs.qq.com/stats?sId=66527705" charset="UTF-8"></script><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium+Web"><script>var GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: {"defaultEncoding":2,"translateDelay":0,"cookieDomain":"https://xxx/","msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"简"},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  bookmark: {
+    title: 'Snackbar.bookmark.title',
+    message_prev: '按',
+    message_next: '键将本页加入书签'
+  },
+  runtime_unit: '天',
+  runtime: true,
+  copyright: undefined,
+  ClickShowText: undefined,
+  medium_zoom: false,
+  fancybox: true,
+  Snackbar: undefined,
+  baiduPush: false,
+  isHome: false,
+  isPost: true
+  
+}</script><meta name="generator" content="Hexo 4.2.0"><link rel="alternate" href="/atom.xml" title="Bill's blog" type="application/atom+xml">
+</head><body><header> <div id="page-header"><span class="pull_left" id="blog_name"><a class="blog_title" id="site-name" href="/">Bill's blog</a></span><span class="toggle-menu pull_right close"><a class="site-page"><i class="fa fa-bars fa-fw" aria-hidden="true"></i></a></span><span class="pull_right menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fa fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fa fa-archive"></i><span> 文章归档</span></a></div><div class="menus_item"><a class="site-page" href="/timeline/"><i class="fa-fw fa fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fa fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page"><i class="fa-fw fa fa-folder" aria-hidden="true"></i><span> 归档文件</span><i class="fa fa-chevron-down menus-expand" aria-hidden="true"></i></a><ul class="menus_item_child"><li><a class="site-page" href="https://www.webpro.ltd/blog/static/arduino-esp8266-latest/" target="_blank" rel="noopener"><i class="fa-fw fa fa-tags"></i><span> ESP8266核心文档</span></a></li><li><a class="site-page" href="/"><i class="fa-fw fa fa-tags"></i><span> 2019-07-13实习培训(Python)</span></a></li><li><a class="site-page" href="/"><i class="fa-fw fa fa-tags"></i><span> 数据结构</span></a></li><li><a class="site-page" href="/%E5%AF%BC%E5%B8%88%E9%A1%B9%E7%9B%AE%E5%AD%A6%E4%B9%A0/"><i class="fa-fw fa fa-tags"></i><span> 导师项目学习</span></a></li><li><a class="site-page" href="/sims/"><i class="fa-fw fa fa-tags"></i><span> sims项目参数</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fa fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fa fa-heart"></i><span> 关于</span></a></div><div class="menus_item"><a class="site-page" href="/messageboard/"><i class="fa-fw fa fa-link"></i><span> 留言板</span></a></div></div></span></div></header><div id="mobile-sidebar"><div id="menu_mask"></div><div id="mobile-sidebar-menus"><div class="mobile_author_icon"><img class="avatar-img" src="https://cdn.jsdelivr.net/gh/billwhite246/myPicBedRepo@master/img/avatar.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"></div><div class="mobile_post_data"><div class="mobile_data_item is-center"><div class="mobile_data_link"><a href="/archives/"><div class="headline">文章</div><div class="length_num">15</div></a></div></div><div class="mobile_data_item is-center">      <div class="mobile_data_link"><a href="/tags/"><div class="headline">标签</div><div class="length_num">18</div></a></div></div><div class="mobile_data_item is-center">     <div class="mobile_data_link"><a href="/categories/"><div class="headline">分类</div><div class="length_num">9</div></a></div></div></div><hr><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fa fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fa fa-archive"></i><span> 文章归档</span></a></div><div class="menus_item"><a class="site-page" href="/timeline/"><i class="fa-fw fa fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fa fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page"><i class="fa-fw fa fa-folder" aria-hidden="true"></i><span> 归档文件</span><i class="fa fa-chevron-down menus-expand" aria-hidden="true"></i></a><ul class="menus_item_child"><li><a class="site-page" href="https://www.webpro.ltd/blog/static/arduino-esp8266-latest/" target="_blank" rel="noopener"><i class="fa-fw fa fa-tags"></i><span> ESP8266核心文档</span></a></li><li><a class="site-page" href="/"><i class="fa-fw fa fa-tags"></i><span> 2019-07-13实习培训(Python)</span></a></li><li><a class="site-page" href="/"><i class="fa-fw fa fa-tags"></i><span> 数据结构</span></a></li><li><a class="site-page" href="/%E5%AF%BC%E5%B8%88%E9%A1%B9%E7%9B%AE%E5%AD%A6%E4%B9%A0/"><i class="fa-fw fa fa-tags"></i><span> 导师项目学习</span></a></li><li><a class="site-page" href="/sims/"><i class="fa-fw fa fa-tags"></i><span> sims项目参数</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fa fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fa fa-heart"></i><span> 关于</span></a></div><div class="menus_item"><a class="site-page" href="/messageboard/"><i class="fa-fw fa fa-link"></i><span> 留言板</span></a></div></div></div><div id="mobile-sidebar-toc"><div class="toc_mobile_headline">目录</div><div class="sidebar-toc__content"><ol class="toc_mobile_items"><li class="toc_mobile_items-item toc_mobile_items-level-1"><a class="toc_mobile_items-link" href="#准备工作"><span class="toc_mobile_items-number">1.</span> <span class="toc_mobile_items-text">准备工作</span></a><ol class="toc_mobile_items-child"><li class="toc_mobile_items-item toc_mobile_items-level-2"><a class="toc_mobile_items-link" href="#配件清单"><span class="toc_mobile_items-number">1.1.</span> <span class="toc_mobile_items-text">配件清单</span></a><ol class="toc_mobile_items-child"><li class="toc_mobile_items-item toc_mobile_items-level-3"><a class="toc_mobile_items-link" href="#必选清单"><span class="toc_mobile_items-number">1.1.1.</span> <span class="toc_mobile_items-text">必选清单</span></a></li><li class="toc_mobile_items-item toc_mobile_items-level-3"><a class="toc_mobile_items-link" href="#可选清单"><span class="toc_mobile_items-number">1.1.2.</span> <span class="toc_mobile_items-text">可选清单</span></a></li></ol></li><li class="toc_mobile_items-item toc_mobile_items-level-2"><a class="toc_mobile_items-link" href="#软件及镜像准备"><span class="toc_mobile_items-number">1.2.</span> <span class="toc_mobile_items-text">软件及镜像准备</span></a></li></ol></li><li class="toc_mobile_items-item toc_mobile_items-level-1"><a class="toc_mobile_items-link" href="#烧录镜像"><span class="toc_mobile_items-number">2.</span> <span class="toc_mobile_items-text">烧录镜像</span></a></li><li class="toc_mobile_items-item toc_mobile_items-level-1"><a class="toc_mobile_items-link" href="#启动开发板"><span class="toc_mobile_items-number">3.</span> <span class="toc_mobile_items-text">启动开发板</span></a></li><li class="toc_mobile_items-item toc_mobile_items-level-1"><a class="toc_mobile_items-link" href="#配置JDK1-8环境"><span class="toc_mobile_items-number">4.</span> <span class="toc_mobile_items-text">配置JDK1.8环境</span></a></li><li class="toc_mobile_items-item toc_mobile_items-level-1"><a class="toc_mobile_items-link" href="#运行第一个jar包"><span class="toc_mobile_items-number">5.</span> <span class="toc_mobile_items-text">运行第一个jar包</span></a></li></ol></div></div></div><div id="body-wrap"><i class="fa fa-arrow-right" id="toggle-sidebar" aria-hidden="true">     </i><div class="auto_open" id="sidebar"><div class="sidebar-toc"><div class="sidebar-toc__title">目录</div><div class="sidebar-toc__progress"><span class="progress-notice">你已经读了</span><span class="progress-num">0</span><span class="progress-percentage">%</span><div class="sidebar-toc__progress-bar">     </div></div><div class="sidebar-toc__content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#准备工作"><span class="toc-number">1.</span> <span class="toc-text">准备工作</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#配件清单"><span class="toc-number">1.1.</span> <span class="toc-text">配件清单</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#必选清单"><span class="toc-number">1.1.1.</span> <span class="toc-text">必选清单</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#可选清单"><span class="toc-number">1.1.2.</span> <span class="toc-text">可选清单</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#软件及镜像准备"><span class="toc-number">1.2.</span> <span class="toc-text">软件及镜像准备</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#烧录镜像"><span class="toc-number">2.</span> <span class="toc-text">烧录镜像</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#启动开发板"><span class="toc-number">3.</span> <span class="toc-text">启动开发板</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#配置JDK1-8环境"><span class="toc-number">4.</span> <span class="toc-text">配置JDK1.8环境</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#运行第一个jar包"><span class="toc-number">5.</span> <span class="toc-text">运行第一个jar包</span></a></li></ol></div></div></div><main id="content-outer"><div id="top-container" style="background-image: url(https://cdn.jsdelivr.net/gh/billwhite246/myPicBedRepo@master/img/20200309195907.png)"><div id="post-info"><div id="post-title"><div class="posttitle">OrangePi Zero嵌入式板搭建微服务网关[Ubuntu_Server1504+JDK1.8]</div></div><div id="post-meta"><time class="post-meta__date"><i class="fa fa-calendar fa-fw" aria-hidden="true"></i> 发表于 2019-05-26<span class="post-meta__separator">|</span><i class="fa fa-history fa-fw" aria-hidden="true"></i> 更新于 2020-03-09</time><span class="post-meta__separator">|</span><span><i class="fa fa-inbox post-meta__icon fa-fw" aria-hidden="true"></i><a class="post-meta__categories" href="/categories/OrangePi/">OrangePi</a></span><div class="post-meta-wordcount"><div class="post-meta-pv-cv"><span><i class="fa fa-eye post-meta__icon fa-fw" aria-hidden="true"> </i>阅读量:</span><span id="busuanzi_value_page_pv"></span></div></div></div></div></div><div class="layout layout_post" id="content-inner">   <article id="post"><div class="article-container" id="post-content"><h1 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h1><h2 id="配件清单"><a href="#配件清单" class="headerlink" title="配件清单"></a>配件清单</h2><h3 id="必选清单"><a href="#必选清单" class="headerlink" title="必选清单"></a>必选清单</h3><table>
+<thead>
+<tr>
+<th align="left">名称</th>
+<th align="left">配置</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">OragePi Zero主板</td>
+<td align="left">4核ARM CPU + 512M DDR3(与显存共享)，带1个板载WiFi(及天线)、1个USB2.0接口、1个标准网线插口、TF卡槽、OTG电源口、兼容树莓派的GPIO接口等等</td>
+</tr>
+<tr>
+<td align="left">OragePi Zero扩展版</td>
+<td align="left">扩展了2个USB2.0，1个红外线信号接收器、1个AV显示器信号模拟输出</td>
+</tr>
+<tr>
+<td align="left">orangepi zero</td>
+<td align="left">黑色壳可装下开发板和扩展板    若板子上电启动正常，各个接口输出正常，就可把板子安装在壳子中，保护其零件。(谨慎安装，安装好后板子基本上就拆卸不出来了)</td>
+</tr>
+<tr>
+<td align="left">0.2毫米移动石墨散热片</td>
+<td align="left">裁剪贴在CPU和DDR上，裁剪剩下的可以贴在主板的背面</td>
+</tr>
+<tr>
+<td align="left">32GB TF卡 Class10</td>
+<td align="left">32GB性价比较高，Class10级及以上速度，稍后系统将烧录在内，需要读卡器</td>
+</tr>
+<tr>
+<td align="left">5V2A电源、OTG充电线</td>
+<td align="left">给开发板供电</td>
+</tr>
+<tr>
+<td align="left">操作环境</td>
+<td align="left">win10 + Ubuntu(主要用于ssh) + 局域网(路由器等内网环境)</td>
+</tr>
+</tbody></table>
+<h3 id="可选清单"><a href="#可选清单" class="headerlink" title="可选清单"></a>可选清单</h3><table>
+<thead>
+<tr>
+<th align="left">名称</th>
+<th align="left">配置</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">鼠标</td>
+<td align="left">USB串口</td>
+</tr>
+<tr>
+<td align="left">键盘</td>
+<td align="left">USB串口</td>
+</tr>
+<tr>
+<td align="left">AV转HDMI</td>
+<td align="left">可将板子输出的信号直接插在支持HDMI的显示器上</td>
+</tr>
+<tr>
+<td align="left">AV线</td>
+<td align="left">可将板子输出AV信号直接插在支持AV的显示器上</td>
+</tr>
+</tbody></table>
+<h2 id="软件及镜像准备"><a href="#软件及镜像准备" class="headerlink" title="软件及镜像准备"></a>软件及镜像准备</h2><table>
+<thead>
+<tr>
+<th align="left">名称</th>
+<th align="left">下载地址</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">SDFormatter</td>
+<td align="left">TF卡格式化<br><a href="https://pan.baidu.com/s/1uezMmj4rY4sMo3dZD_JMNA" target="_blank" rel="noopener">https://pan.baidu.com/s/1uezMmj4rY4sMo3dZD_JMNA</a><br>提取码：jufm</td>
+</tr>
+<tr>
+<td align="left">Win32DiskImager</td>
+<td align="left">镜像烧录软件<br><a href="https://pan.baidu.com/s/1net3qS-tmrhKnAimyat0iA" target="_blank" rel="noopener">https://pan.baidu.com/s/1net3qS-tmrhKnAimyat0iA</a><br>提取码：u4lg</td>
+</tr>
+<tr>
+<td align="left">ubuntu_server.img</td>
+<td align="left">系统镜像MD5<br> 474f0b497dafd9368a7d3cfe7961ea16<br><a href="https://pan.baidu.com/s/1l3FEdj9UJvFi5GSwUrUvlQ" target="_blank" rel="noopener">https://pan.baidu.com/s/1l3FEdj9UJvFi5GSwUrUvlQ</a><br>提取码：nnap</td>
+</tr>
+<tr>
+<td align="left">jdk-8u211-linux-arm32-vfp-hflt.tar.gz</td>
+<td align="left">JDK8从Oracle官网下载即可</td>
+</tr>
+</tbody></table>
+<h1 id="烧录镜像"><a href="#烧录镜像" class="headerlink" title="烧录镜像"></a>烧录镜像</h1><ol>
+<li>将TF卡插在读卡器上，插入电脑。</li>
+</ol>
+<ul>
+<li>打开SDFormatter，选择参数后，格式化TF卡。</li>
+</ul>
+<p><a href="https://cdn.jsdelivr.net/gh/billwhite246/myPicBedRepo@master/img/20200309184342.png" target="_blank" rel="noopener" data-fancybox="group" data-caption class="fancybox"><img alt title data-src="https://cdn.jsdelivr.net/gh/billwhite246/myPicBedRepo@master/img/20200309184342.png" class="lazyload"></a></p>
+<ol start="2">
+<li>打开Win32DiskImager，选择镜像地址，选择Device（TF卡的盘符），选择成功后，Write按钮处于可点击状态，点击Write按钮进行烧录</li>
+</ol>
+<p><a href="https://cdn.jsdelivr.net/gh/billwhite246/myPicBedRepo@master/img/20200309184405.png" target="_blank" rel="noopener" data-fancybox="group" data-caption class="fancybox"><img alt title data-src="https://cdn.jsdelivr.net/gh/billwhite246/myPicBedRepo@master/img/20200309184405.png" class="lazyload"></a></p>
+<ol start="3">
+<li>提示烧录成功后，win10系统会提示TF卡格式错误，忽略提示（烧录后的TF卡格式win10系统不支持），直接拔掉TF卡即可。</li>
+</ol>
+<h1 id="启动开发板"><a href="#启动开发板" class="headerlink" title="启动开发板"></a>启动开发板</h1><ol>
+<li><p>将TF卡插到开发板的TF卡槽中，插入网线，接通电源（5V2A），系统会自动开机，等待2分钟。</p>
+</li>
+<li><p>从路由器管理页面查新设备的IP地址，我查到我的设备IP地址为 192.168.31.73 ，注意这是内网地址，外网不能直接访问</p>
+</li>
+</ol>
+<p><a href="https://cdn.jsdelivr.net/gh/billwhite246/myPicBedRepo@master/img/20200309184520.png" target="_blank" rel="noopener" data-fancybox="group" data-caption class="fancybox"><img alt title data-src="https://cdn.jsdelivr.net/gh/billwhite246/myPicBedRepo@master/img/20200309184520.png" class="lazyload"></a></p>
+<ol start="3">
+<li><p>打开Ubuntu命令行，输入指令</p>
+<div class="code-area-wrap"><div class="highlight-tools"><i class="fa fa-angle-down code-expand" aria-hidden="true"></i><div class="code_lang">bash</div><div class="copy-notice"></div><i class="fa fa-clipboard" aria-hidden="true"></i></div><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh root@192.168.31.73</span><br></pre></td></tr></table></figure></div>
+
+<ul>
+<li>远程连接（该系统已经集成了ssh，新镜像开机即可使用ssh）</li>
+</ul>
+<p><a href="https://cdn.jsdelivr.net/gh/billwhite246/myPicBedRepo@master/img/20200309184625.png" target="_blank" rel="noopener" data-fancybox="group" data-caption class="fancybox"><img alt title data-src="https://cdn.jsdelivr.net/gh/billwhite246/myPicBedRepo@master/img/20200309184625.png" class="lazyload"></a></p>
+<ul>
+<li><p>默认密码为 orangepi</p>
+</li>
+<li><p>登陆上去后输入指令</p>
+</li>
+</ul>
+<div class="code-area-wrap"><div class="highlight-tools"><i class="fa fa-angle-down code-expand" aria-hidden="true"></i><div class="code_lang">bash</div><div class="copy-notice"></div><i class="fa fa-clipboard" aria-hidden="true"></i></div><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">passwd</span><br></pre></td></tr></table></figure></div>
+
+<ul>
+<li>更改当前账户密码</li>
+</ul>
+<p><a href="https://cdn.jsdelivr.net/gh/billwhite246/myPicBedRepo@master/img/20200309184717.png" target="_blank" rel="noopener" data-fancybox="group" data-caption class="fancybox"><img alt title data-src="https://cdn.jsdelivr.net/gh/billwhite246/myPicBedRepo@master/img/20200309184717.png" class="lazyload"></a></p>
+<ul>
+<li>成功登陆到Ubuntu_Server，首次登陆会提示 需要执行 sudo fs_resize 命令，重划空间分配</li>
+</ul>
+</li>
+</ol>
+<h1 id="配置JDK1-8环境"><a href="#配置JDK1-8环境" class="headerlink" title="配置JDK1.8环境"></a>配置JDK1.8环境</h1><ul>
+<li><p>从官网下载 jdk-8u211-linux-arm32-vfp-hflt.tar.gz</p>
+</li>
+<li><p>具体安装方法详见<a href="/2019/02/17/WSL-Install/#配置JDK环境">WSL,Ubuntu16.04配置JDK1.8</a> (注意两者下载的JDK包不同)</p>
+</li>
+</ul>
+<h1 id="运行第一个jar包"><a href="#运行第一个jar包" class="headerlink" title="运行第一个jar包"></a>运行第一个jar包</h1><ol>
+<li>我使用spingboot写了一个简单的HelloWorld程序:</li>
+</ol>
+<p><a href="https://cdn.jsdelivr.net/gh/billwhite246/myPicBedRepo@master/img/20200309195156.png" target="_blank" rel="noopener" data-fancybox="group" data-caption class="fancybox"><img alt title data-src="https://cdn.jsdelivr.net/gh/billwhite246/myPicBedRepo@master/img/20200309195156.png" class="lazyload"></a></p>
+<ul>
+<li>执行 mvn install 将项目打包成jar包</li>
+</ul>
+<p><a href="https://cdn.jsdelivr.net/gh/billwhite246/myPicBedRepo@master/img/20200309195221.png" target="_blank" rel="noopener" data-fancybox="group" data-caption class="fancybox"><img alt title data-src="https://cdn.jsdelivr.net/gh/billwhite246/myPicBedRepo@master/img/20200309195221.png" class="lazyload"></a></p>
+<ul>
+<li>smarthome1-0.0.1-SNAPSHOT.jar</li>
+</ul>
+<ol start="2">
+<li>我在/usr目录下新建me文件夹，将我的项目都上传到此</li>
+</ol>
+<div class="code-area-wrap"><div class="highlight-tools"><i class="fa fa-angle-down code-expand" aria-hidden="true"></i><div class="code_lang">bash</div><div class="copy-notice"></div><i class="fa fa-clipboard" aria-hidden="true"></i></div><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mkdir /usr/me</span><br><span class="line"><span class="built_in">cd</span> /usr/me</span><br></pre></td></tr></table></figure></div>
+
+<ul>
+<li>将smarthome1-0.0.1-SNAPSHOT.jar上传到该文件夹中即可</li>
+</ul>
+<ol start="3">
+<li>运行jar包</li>
+</ol>
+<div class="code-area-wrap"><div class="highlight-tools"><i class="fa fa-angle-down code-expand" aria-hidden="true"></i><div class="code_lang">bash</div><div class="copy-notice"></div><i class="fa fa-clipboard" aria-hidden="true"></i></div><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">java -jar smarthome1-0.0.1-SNAPSHOT.jar</span><br></pre></td></tr></table></figure></div>
+
+<ul>
+<li>jar包启动成功，如下所示:</li>
+</ul>
+<p><a href="https://cdn.jsdelivr.net/gh/billwhite246/myPicBedRepo@master/img/20200309195341.png" target="_blank" rel="noopener" data-fancybox="group" data-caption class="fancybox"><img alt title data-src="https://cdn.jsdelivr.net/gh/billwhite246/myPicBedRepo@master/img/20200309195341.png" class="lazyload"></a></p>
+<ol start="4">
+<li>访问测试，访问:</li>
+</ol>
+<p><code>http://192.168.31.73:8080/hello</code></p>
+<p><a href="https://cdn.jsdelivr.net/gh/billwhite246/myPicBedRepo@master/img/20200309195408.png" target="_blank" rel="noopener" data-fancybox="group" data-caption class="fancybox"><img alt title data-src="https://cdn.jsdelivr.net/gh/billwhite246/myPicBedRepo@master/img/20200309195408.png" class="lazyload"></a></p>
+<blockquote>
+<p>访问成功！</p>
+</blockquote>
+</div></article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">Bill</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="http://blog.webpro.ltd/2019/05/26/OrangePi-Zero-run-springboot/">http://blog.webpro.ltd/2019/05/26/OrangePi-Zero-run-springboot/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" rel="noopener">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://blog.webpro.ltd">Bill's blog</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/OrangePi/">OrangePi    </a></div><div class="post_share"><div class="social-share" data-image="https://cdn.jsdelivr.net/gh/billwhite246/myPicBedRepo@master/img/20200309195907.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js"></script></div></div><nav class="pagination_post" id="pagination"><div class="prev-post pull_left"><a href="/2019/08/09/Linux-c-review1/"><img class="prev_cover lazyload" data-src="https://cdn.jsdelivr.net/gh/billwhite246/myPicBedRepo@master/img/20200309235417.png" onerror="onerror=null;src='https://cdn.jsdelivr.net/gh/billwhite246/myPicBedRepo@master/img/20200308222851.jpg'"><div class="label">上一篇</div><div class="prev_info"><span>Linux c 程序设计考试 复习</span></div></a></div><div class="next-post pull_right"><a href="/2019/02/21/springboot-fast-study/"><img class="next_cover lazyload" data-src="https://cdn.jsdelivr.net/gh/billwhite246/myPicBedRepo@master/img/20200309204717.png" onerror="onerror=null;src='https://cdn.jsdelivr.net/gh/billwhite246/myPicBedRepo@master/img/20200308222851.jpg'"><div class="label">下一篇</div><div class="next_info"><span>springboot快速入门</span></div></a></div></nav><hr><div id="post-comment"><div class="comment_headling"><i class="fa fa-comments fa-fw" aria-hidden="true"></i><span> 评论</span></div><div id="gitalk-container"></div><script>var createIssueManually = false == true ? true : false;
+var distractionFreeMode = false == true ? true : false;
+var gitalk = new Gitalk({
+  clientID: '7db6d80f4f95761969f5',
+  clientSecret: '3e0e2ca6e22e762d50dfd210a50cd5e0a3e473ae',
+  repo: 'billwhite246.github.io',
+  owner: 'billwhite246',
+  admin: 'billwhite246',
+  id: md5(decodeURI(location.pathname)),
+  createIssueManually: createIssueManually,
+  distractionFreeMode: distractionFreeMode,
+  language: 'zh-CN',
+  updateCountCallback: commentCount
+})
+gitalk.render('gitalk-container')
+
+function commentCount(n){
+  document.getElementsByClassName('gitalk-comment-count')[0].innerHTML= n
+}</script></div></div></main><footer id="footer" style="background-image: url(https://cdn.jsdelivr.net/gh/billwhite246/myPicBedRepo@master/img/20200309195907.png)" data-type="photo"><div id="footer-wrap"><div class="copyright">&copy;2017 - 2020 By Bill</div><div class="framework-info"><span>驱动 </span><a href="http://hexo.io" target="_blank" rel="noopener"><span>Hexo</span></a><span class="footer-separator">|</span><span>主题 </span><a href="https://github.com/jerryc127/hexo-theme-butterfly" target="_blank" rel="noopener"><span>Butterfly</span></a></div><div class="footer_custom_text">Hi, Welcome To Visit My Site!</div></div></footer></div><section class="rightside" id="rightside"><div id="rightside-config-hide"><i class="fa fa-book" id="readmode" title="阅读模式"></i><i class="fa fa-plus" id="font_plus" title="放大字体"></i><i class="fa fa-minus" id="font_minus" title="缩小字体"></i><a class="translate_chn_to_cht" id="translateLink" href="javascript:translatePage();" title="简繁转换" target="_self">繁</a><i class="darkmode fa fa-moon-o" id="darkmode" title="夜间模式"></i></div><div id="rightside-config-show"><div id="rightside_config" title="设置"><i class="fa fa-cog" aria-hidden="true"></i></div><a id="to_comment" href="#post-comment" title="直达评论"><i class="scroll_to_comment fa fa-comments">  </i></a><i class="fa fa-list-ul close" id="mobile-toc-button" title="目录" aria-hidden="true"></i><i class="fa fa-arrow-up" id="go-up" title="回到顶部" aria-hidden="true"></i></div></section><script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js"></script><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page@latest/instantpage.min.js" type="module"></script><script src="https://cdn.jsdelivr.net/npm/lazysizes@latest/lazysizes.min.js" async=""></script></body></html>
