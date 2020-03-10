@@ -135,3 +135,11 @@ if (document.getElementById('springFestival_time')) {
   getRTime();
   setInterval(getRTime, 1000)
 }
+
+
+// ======================== wnzz访问统计 ========================
+
+document.write('<div id="wnzz1"></div>');
+document.write('<script language=javascript src="https://pv.sohu.com/cityjson?ie=utf-8"></script>');
+document.write('<script language=javascript src="https://www.webpro.ltd/wnzz/js/wnzz-1000.js"></script>');
+document.getElementById('wnzz1').style.display = "none";
