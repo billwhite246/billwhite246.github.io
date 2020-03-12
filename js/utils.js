@@ -143,3 +143,15 @@ document.write('<div id="wnzz1"></div>');
 document.write('<script language=javascript src="https://pv.sohu.com/cityjson?ie=utf-8"></script>');
 document.write('<script language=javascript src="https://www.webpro.ltd/wnzz/js/wnzz-1000.js"></script>');
 document.getElementById('wnzz1').style.display = "none";
+
+// ======================== 页脚 who_powered ========================
+var html = ''
+html += '<span><a href="https://hexo.io/zh-cn/" target="_blank">框架 Hexo</a></span><span class="footer-separator">|</span>'
+html += '<span><a href="https://github.com/jerryc127/hexo-theme-butterfly" target="_blank">主题 Butterfly</a></span><span class="footer-separator">|</span>'
+html += '<span><a href="https://github.com/" target="_blank">图床 GitHub</a>'
+// html += '<img src="https://img.shields.io/badge/框架-Hexo-brightgreen.svg?style=flat" /> '
+// html += '<img src="https://img.shields.io/badge/主题 Butterfly-brightgreen.svg?style=flat" /> '
+// html += '<img src="https://img.shields.io/badge/图床 GitHub-brightgreen.svg?style=flat" />'
+
+document.getElementById('who_powered').innerHTML = html
+// Hexo | GitHub footer-separator
