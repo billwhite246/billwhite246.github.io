@@ -144,14 +144,22 @@ document.write('<script language=javascript src="https://pv.sohu.com/cityjson?ie
 document.write('<script language=javascript src="https://www.webpro.ltd/wnzz/js/wnzz-1000.js"></script>');
 document.getElementById('wnzz1').style.display = "none";
 
+
 // ======================== 页脚 who_powered ========================
-var html = ''
-html += '<span><a href="https://hexo.io/zh-cn/" target="_blank">框架 Hexo</a></span><span class="footer-separator">|</span>'
-html += '<span><a href="https://github.com/jerryc127/hexo-theme-butterfly" target="_blank">主题 Butterfly</a></span><span class="footer-separator">|</span>'
-html += '<span><a href="https://github.com/" target="_blank">图床 GitHub</a>'
+var html1 = ''
+html1 += '<div style="display: flex; justify-content: center; margin-top: 8px;">'
+html1 += '<span><a href="https://hexo.io/zh-cn/" target="_blank"><img style="border-radius: 8px; height: 20px; margin-right: 10px;" src="https://cdn.jsdelivr.net/gh/billwhite246/myPicBedRepo@master/img/20200312232448.png" /></a></span>'
+html1 += '<span><a href="https://github.com/" target="_blank"><img style="border-radius: 8px; height: 20px; margin-right: 10px;" src="https://cdn.jsdelivr.net/gh/billwhite246/myPicBedRepo@master/img/20200312230723.jpg" /></a></span>'
+html1 += '<span><a href="https://console-api.nodecache.com/f?aff=3PzGP4" target="_blank"><img style="border-radius: 8px; height: 20px; margin-right: 10px;" src="https://cdn.jsdelivr.net/gh/billwhite246/myPicBedRepo@master/img/20200312231221.png" /></a></span>'
+html1 += '<span><a href="https://www.jsdelivr.com/" target="_blank"><img style="border-radius: 8px; height: 20px;" src="https://cdn.jsdelivr.net/gh/billwhite246/myPicBedRepo@master/img/20200312230551.png" /></a></span>'
+html1 += '</div>'
+// html1 += '<span><a href="https://hexo.io/zh-cn/" target="_blank">Frame Hexo</a></span><span class="footer-separator">|</span>'
+html1 += '<span><a href="https://github.com/jerryc127/hexo-theme-butterfly" target="_blank">Theme Butterfly</a></span><span class="footer-separator">|</span>'
+// html1 += '<span><a href="https://github.com/" target="_blank">PicBed GitHub</a><span class="footer-separator">|</span>'
+html1 += '<span><a href="https://github.com/gitalk/gitalk" target="_blank">Comment Gitalk</a>'
+// html1 += '<span><a href="https://www.jsdelivr.com/" target="_blank">CDN jsdelivr</a>'
 // html += '<img src="https://img.shields.io/badge/框架-Hexo-brightgreen.svg?style=flat" /> '
 // html += '<img src="https://img.shields.io/badge/主题 Butterfly-brightgreen.svg?style=flat" /> '
 // html += '<img src="https://img.shields.io/badge/图床 GitHub-brightgreen.svg?style=flat" />'
-
-document.getElementById('who_powered').innerHTML = html
+document.getElementById('who_powered').innerHTML = html1
 // Hexo | GitHub footer-separator
