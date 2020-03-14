@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://blog.webpro.ltd/"/>
-  <updated>2020-03-09T12:07:12.617Z</updated>
+  <updated>2020-03-14T03:48:14.934Z</updated>
   <id>http://blog.webpro.ltd/</id>
   
   <author>
@@ -15,6 +15,47 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Github + jsdelivr + PicGo 搭建免费稳定高速图床</title>
+    <link href="http://blog.webpro.ltd/2020/03/14/github-picBed/"/>
+    <id>http://blog.webpro.ltd/2020/03/14/github-picBed/</id>
+    <published>2020-03-14T00:52:27.000Z</published>
+    <updated>2020-03-14T03:48:14.934Z</updated>
+    
+    <content type="html"><![CDATA[<style>.flex-img {  display: flex;}.flex-img-item {  text-align: center;}</style><h1 id="图床概述"><a href="#图床概述" class="headerlink" title="图床概述"></a>图床概述</h1><div class="flex-img">  <div class="flex-img-item">    <a href="https://cdn.jsdelivr.net/gh/billwhite246/myPicBedRepo@master/img/20200312153906.png" data-fancybox="group" data-caption="undefined" class="fancybox"><img style="height: 50px;" data-src="https://cdn.jsdelivr.net/gh/billwhite246/myPicBedRepo@master/img/20200312153906.png" class="lazyload"></a>    <span><b>GitHub</b></span>  </div>  <div class="flex-img-item">    <a href="https://cdn.jsdelivr.net/gh/billwhite246/myPicBedRepo@master/img/20200314110013.png" data-fancybox="group" data-caption="undefined" class="fancybox"><img style="height: 50px;" data-src="https://cdn.jsdelivr.net/gh/billwhite246/myPicBedRepo@master/img/20200314110013.png" class="lazyload"></a>    <span><b>jsdelivr</b></span>  </div>  <div class="flex-img-item">    <a href="https://cdn.jsdelivr.net/gh/billwhite246/myPicBedRepo@master/img/20200314091317.png" data-fancybox="group" data-caption="undefined" class="fancybox"><img style="height: 50px;" data-src="https://cdn.jsdelivr.net/gh/billwhite246/myPicBedRepo@master/img/20200314091317.png" class="lazyload"></a>    <span><b>PicGo</b></span>  </div></div><br><blockquote><p>为什么要用图床</p></blockquote><p>写博客文章时，往往要附带一些图片，而图片并非文字，存储方式也非单纯的以文本方式存储。往往需要把图片统一托管起来，这样操作比较方便，便于批量操作。另外我的博客使用hexo框架，静态博客框架，需要分离文章和图片，写文章时采用<code>markwodn + 图床</code>方式会获得极佳体验。</p><blockquote><p>什么是图床</p></blockquote><p>图床类似于OSS对象存储，OSS存储的对象相对来说比较广泛，而图床只是用来存储图片。将图片上传到图床，通过<code>url</code>进行图片资源访问。</p><blockquote><p>图床的选择</p></blockquote><ul><li>微博图床：以前用的人较多，2019年4月开始开启防盗链，已经失效。</li><li>SM.MS：香港个人开发，每个用户免费5GB空间，但速度较慢。</li><li>ImgUrl：国外图床，速度较慢。</li><li>又拍云、七牛云、腾讯云、阿里云等国内服务商：需要备案、实名认证（支付宝实名认证、人脸识别认证等等），能不透露个人信息尽量不透露，保护好隐私。</li><li>GitHub：使用公开Git仓库做存储，免费，单个文件大小有限制(不超过100MB，一张高清图片500KB左右，足够)。直接通过GitHub访问图片，速度较慢，但是配合CDN：<code>jsdelivr</code>，速度非常快，<code>jsdelivr</code>支持加速来自GitHub的文件，1MB的PDF可以秒开。</li></ul><h1 id="GitHub图床配置步骤"><a href="#GitHub图床配置步骤" class="headerlink" title="GitHub图床配置步骤"></a>GitHub图床配置步骤</h1><h2 id="创建图床仓库"><a href="#创建图床仓库" class="headerlink" title="创建图床仓库"></a>创建图床仓库</h2><ul><li>设置仓库名称</li><li>使用README.md文件初始化仓库</li></ul><p><a href="https://cdn.jsdelivr.net/gh/billwhite246/myPicBedRepo@master/img/20200314113026.png" data-fancybox="group" data-caption class="fancybox"><img alt data-src="https://cdn.jsdelivr.net/gh/billwhite246/myPicBedRepo@master/img/20200314113026.png" class="lazyload" title></a></p><h2 id="生成-personal-access-token"><a href="#生成-personal-access-token" class="headerlink" title="生成 personal access token"></a>生成 personal access token</h2><p><a href="https://cdn.jsdelivr.net/gh/billwhite246/myPicBedRepo@master/img/20200314113809.png" data-fancybox="group" data-caption class="fancybox"><img alt data-src="https://cdn.jsdelivr.net/gh/billwhite246/myPicBedRepo@master/img/20200314113809.png" class="lazyload" title></a><br><a href="https://cdn.jsdelivr.net/gh/billwhite246/myPicBedRepo@master/img/20200314113808.png" data-fancybox="group" data-caption class="fancybox"><img alt data-src="https://cdn.jsdelivr.net/gh/billwhite246/myPicBedRepo@master/img/20200314113808.png" class="lazyload" title></a><br><a href="https://cdn.jsdelivr.net/gh/billwhite246/myPicBedRepo@master/img/20200314113811.png" data-fancybox="group" data-caption class="fancybox"><img alt data-src="https://cdn.jsdelivr.net/gh/billwhite246/myPicBedRepo@master/img/20200314113811.png" class="lazyload" title></a><br><a href="https://cdn.jsdelivr.net/gh/billwhite246/myPicBedRepo@master/img/20200314113810.png" data-fancybox="group" data-caption class="fancybox"><img alt data-src="https://cdn.jsdelivr.net/gh/billwhite246/myPicBedRepo@master/img/20200314113810.png" class="lazyload" title></a><br><a href="https://cdn.jsdelivr.net/gh/billwhite246/myPicBedRepo@master/img/20200314113916.png" data-fancybox="group" data-caption class="fancybox"><img alt data-src="https://cdn.jsdelivr.net/gh/billwhite246/myPicBedRepo@master/img/20200314113916.png" class="lazyload" title></a></p><ul><li>创建成功后，把token粘贴下来(GitHub不会保存token，一旦你丢失，重新生成即可)</li></ul><h2 id="下载PicGo图床管理工具"><a href="#下载PicGo图床管理工具" class="headerlink" title="下载PicGo图床管理工具"></a>下载PicGo图床管理工具</h2><p><a href="https://github.com/Molunerfinn/picgo/releases" target="_blank" rel="noopener">PicGo下载(GitHub)</a></p><ul><li>安装完毕后，开启GitHub图床</li><li>设定仓库名：<code>用户名/仓库名</code></li><li>设定分支名：<code>master</code></li><li>设定Token：上个步骤获取到的<code>token</code></li><li>指定存储路径：<code>/img</code>，根据自己需要设置文件夹名称</li><li>设定自定义域名（这个要设置成jsdelivr的CDN的加速地址）：<code>https://cdn.jsdelivr.net/gh/用户名/仓库名@master</code></li></ul><p><a href="https://cdn.jsdelivr.net/gh/billwhite246/myPicBedRepo@master/img/20200314114608.png" data-fancybox="group" data-caption class="fancybox"><img alt data-src="https://cdn.jsdelivr.net/gh/billwhite246/myPicBedRepo@master/img/20200314114608.png" class="lazyload" title></a></p><h1 id="测试GitHub图床"><a href="#测试GitHub图床" class="headerlink" title="测试GitHub图床"></a>测试GitHub图床</h1><p><a href="https://cdn.jsdelivr.net/gh/billwhite246/myPicBedRepo@master/img/20200314114651.png" data-fancybox="group" data-caption class="fancybox"><img alt data-src="https://cdn.jsdelivr.net/gh/billwhite246/myPicBedRepo@master/img/20200314114651.png" class="lazyload" title></a><br><a href="https://cdn.jsdelivr.net/gh/billwhite246/myPicBedRepo@master/img/20200314114607.png" data-fancybox="group" data-caption class="fancybox"><img alt data-src="https://cdn.jsdelivr.net/gh/billwhite246/myPicBedRepo@master/img/20200314114607.png" class="lazyload" title></a></p><ul><li>在相册中查看上传的图片</li></ul><blockquote><p>更多灵活的用法等待你去发现！</p></blockquote>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;style&gt;
+.flex-img {
+  display: flex;
+}
+.flex-img-item {
+  text-align: center;
+}
+&lt;/style&gt;
+
+&lt;h1 id=&quot;图床概述&quot;&gt;&lt;a href=&quot;#图床概述&quot; class=&quot;headerlink&quot; t
+      
+    
+    </summary>
+    
+    
+      <category term="github" scheme="http://blog.webpro.ltd/categories/github/"/>
+    
+    
+      <category term="github" scheme="http://blog.webpro.ltd/tags/github/"/>
+    
+      <category term="jsdelivr" scheme="http://blog.webpro.ltd/tags/jsdelivr/"/>
+    
+      <category term="PicGo" scheme="http://blog.webpro.ltd/tags/PicGo/"/>
+    
+      <category term="图床" scheme="http://blog.webpro.ltd/tags/%E5%9B%BE%E5%BA%8A/"/>
+    
+  </entry>
   
   <entry>
     <title>My Hexo Blog</title>
