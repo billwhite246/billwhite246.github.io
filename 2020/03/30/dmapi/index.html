@@ -74,7 +74,7 @@ function activateLightMode(){
 <li>接口地址: http(s)://dmapi.webpro.ltd</li>
 </ul>
 <h1 id="获取某学号所有实时得分详情"><a href="#获取某学号所有实时得分详情" class="headerlink" title="获取某学号所有实时得分详情"></a>获取某学号所有实时得分详情</h1><ul>
-<li>URL: /dm/getUserInfo/{stuNo}</li>
+<li>URL: /dm/getUserInfo/{stuNo}/{beginDate}/{endDate}/{page}</li>
 <li>参数<table>
 <thead>
 <tr>
@@ -88,11 +88,26 @@ function activateLightMode(){
 <td>学号</td>
 <td>安工大学生学号</td>
 </tr>
+<tr>
+<td>beginDate</td>
+<td>开始日期</td>
+<td>格式:YYYY-MM-DD</td>
+</tr>
+<tr>
+<td>endDate</td>
+<td>结束日期</td>
+<td>格式:YYYY-MM-DD</td>
+</tr>
+<tr>
+<td>page</td>
+<td>页码</td>
+<td>从1开始，每页1000条数据</td>
+</tr>
 </tbody></table>
 </li>
 <li>返回值示例<div class="code-area-wrap"><div class="highlight-tools"><i class="fa fa-angle-down code-expand" aria-hidden="true"></i><div class="code_lang">json</div><div class="copy-notice"></div><i class="fa fa-clipboard" aria-hidden="true"></i></div><figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">"page"</span>: <span class="number">0</span>,</span><br><span class="line">  <span class="attr">"records"</span>: <span class="number">1</span>,</span><br><span class="line">  <span class="attr">"rows"</span>: [&#123;</span><br><span class="line">    <span class="attr">"catalogid1"</span>: <span class="number">0</span>,</span><br><span class="line">    <span class="attr">"catalogid2"</span>: <span class="number">0</span>,</span><br><span class="line">    <span class="attr">"catalogname1"</span>: <span class="string">"文体活动"</span>,</span><br><span class="line">    <span class="attr">"catalogname2"</span>: <span class="string">"文体活动"</span>,</span><br><span class="line">    <span class="attr">"classno"</span>: <span class="string">"计184"</span>,</span><br><span class="line">    <span class="attr">"collegeid"</span>: <span class="literal">null</span>,</span><br><span class="line">    <span class="attr">"collegename"</span>: <span class="literal">null</span>,</span><br><span class="line">    <span class="attr">"convertnum"</span>: <span class="string">"--"</span>,</span><br><span class="line">    <span class="attr">"createdate"</span>: <span class="string">"2020-03-18 11:15:27"</span>,</span><br><span class="line">    <span class="attr">"createname"</span>: <span class="string">"曹雨"</span>,</span><br><span class="line">    <span class="attr">"id"</span>: <span class="string">"76930806"</span>,</span><br><span class="line">    <span class="attr">"joindate"</span>: <span class="string">"2018"</span>,</span><br><span class="line">    <span class="attr">"joinenddate"</span>: <span class="string">"2020-03-03"</span>,</span><br><span class="line">    <span class="attr">"joinstartdate"</span>: <span class="string">"2020-03-02"</span>,</span><br><span class="line">    <span class="attr">"jointimecount"</span>: <span class="string">"2100"</span>,</span><br><span class="line">    <span class="attr">"num"</span>: <span class="string">"3.00"</span>,</span><br><span class="line">    <span class="attr">"reason"</span>: <span class="string">"安徽工业大学校生活部“美食与爱不可辜负”线上活动"</span>,</span><br><span class="line">    <span class="attr">"schoolid"</span>: <span class="literal">null</span>,</span><br><span class="line">    <span class="attr">"schoolname"</span>: <span class="literal">null</span>,</span><br><span class="line">    <span class="attr">"scoreid"</span>: <span class="number">0</span>,</span><br><span class="line">    <span class="attr">"scorename"</span>: <span class="string">"活动积分"</span>,</span><br><span class="line">    <span class="attr">"studentname"</span>: <span class="string">"XXX"</span>,</span><br><span class="line">    <span class="attr">"studentno"</span>: <span class="string">"18907424X"</span>,</span><br><span class="line">    <span class="attr">"tradestatus"</span>: <span class="string">"1"</span>,</span><br><span class="line">    <span class="attr">"unitname"</span>: <span class="string">"学分"</span>,</span><br><span class="line">    <span class="attr">"updatetime"</span>: <span class="literal">null</span></span><br><span class="line">  &#125;]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div></li>
 <li>示例：<ul>
-<li><a href="http://dmapi.webpro.ltd/dm/getUserInfo/189074246" target="_blank" rel="noopener">http://dmapi.webpro.ltd/dm/getUserInfo/189074246</a></li>
+<li><a href="http://dmapi.webpro.ltd/dm/getUserInfo/189074246/2020-03-01/2020-03-29/1" target="_blank" rel="noopener">http://dmapi.webpro.ltd/dm/getUserInfo/189074246/2020-03-01/2020-03-29/1</a></li>
 </ul>
 </li>
 </ul>
