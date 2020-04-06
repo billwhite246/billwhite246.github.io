@@ -17,7 +17,7 @@ $(function () {
    * 傳入 2 正常狀態下
    * 傳入 3 resize時使用
    */
-  function isAdjust (n) {
+  function isAdjust(n) {
     var t
     if (n === 1) {
       t = blogNameWidth + searchWidth + mw > $('#page-header').width() - 300
@@ -36,12 +36,12 @@ $(function () {
   isAdjust(2)
   $('#page-header').css({ opacity: '1', animation: 'headerNoOpacity 1s' })
 
-  function headerAdjust () {
+  function headerAdjust() {
     $('#page-header .toggle-menu').addClass('is_visible')
     $('#page-header .menus,.search span').addClass('is_invisible')
   }
 
-  function headerAdjustBack () {
+  function headerAdjustBack() {
     $('#page-header .toggle-menu').removeClass('is_visible')
     $('#page-header .menus,.search span').removeClass('is_invisible')
   }
@@ -58,7 +58,7 @@ $(function () {
    * pc時 設置主頁top_img 為 fixed
    */
   if (GLOBAL_CONFIG.isHome) {
-    if (/Android|webOS|iPhone|iPod|iPad|BlackBerry/i.test(navigator.userAgent)) {} else {
+    if (/Android|webOS|iPhone|iPod|iPad|BlackBerry/i.test(navigator.userAgent)) { } else {
       $('.full_page').css('background-attachment', 'fixed')
     }
   }
@@ -93,7 +93,7 @@ $(function () {
    * 點擊左下角箭頭,顯示sidebar
    */
 
-  function closeSidebar () {
+  function closeSidebar() {
     $('#page-header').removeClass('open-sidebar')
     $('body').animate({
       paddingLeft: 0
@@ -106,7 +106,7 @@ $(function () {
     })
   }
 
-  function openSidebar () {
+  function openSidebar() {
     $('#page-header').addClass('open-sidebar')
     $('body').animate({
       paddingLeft: 300
@@ -168,7 +168,7 @@ $(function () {
    * copy function
    */
 
-  function copy (text, ctx) {
+  function copy(text, ctx) {
     if (document.queryCommandSupported && document.queryCommandSupported('copy')) {
       try {
         document.execCommand('copy') // Security exception may be thrown by some browsers.
@@ -271,7 +271,7 @@ $(function () {
    * 手機menu和toc按鈕點擊
    * 顯示menu和toc的sidebar
    */
-  function openMobileSidebar (name) {
+  function openMobileSidebar(name) {
     $('body').css('overflow', 'hidden')
     $('#body-wrap').css('transform', 'translateX(-250px)')
     $('#page-header').css('transform', 'translateX(-250px)')
@@ -290,7 +290,7 @@ $(function () {
     }
   }
 
-  function closeMobileSidebar (name) {
+  function closeMobileSidebar(name) {
     $('body').css('overflow', '')
     $('#body-wrap').css('transform', '')
     $('#page-header').css('transform', '')
@@ -416,26 +416,26 @@ $(function () {
   })
 
   // find the scroll direction
-  function scrollDirection (currentTop) {
+  function scrollDirection(currentTop) {
     var result = currentTop > initTop // true is down & false is up
     initTop = currentTop
     return result
   }
 
   // scroll to a head(anchor)
-  function scrollToHead (anchor) {
+  function scrollToHead(anchor) {
     scrollTo(anchor)
   }
 
   // expand toc-item
-  function expandToc ($item) {
+  function expandToc($item) {
     if ($item.is(':visible')) {
       return
     }
     $item.fadeIn(400)
   }
 
-  function scrollPercent (currentTop) {
+  function scrollPercent(currentTop) {
     var docHeight = $('#content-outer').height()
     var winHeight = $(window).height()
     var contentMath = (docHeight > winHeight) ? (docHeight - winHeight) : ($(document).height() - winHeight)
@@ -448,7 +448,7 @@ $(function () {
     }, 100)
   }
 
-  function updateAnchor (anchor) {
+  function updateAnchor(anchor) {
     if (window.history.replaceState && anchor !== window.location.hash) {
       window.history.replaceState(undefined, undefined, anchor)
     }
@@ -458,7 +458,7 @@ $(function () {
   // DOM Hierarchy:
   // ol.toc > (li.toc-item, ...)
   // li.toc-item > (a.toc-link, ol.toc-child > (li.toc-item, ...))
-  function findHeadPosition (top) {
+  function findHeadPosition(top) {
     // assume that we are not in the post page if no TOC link be found,
     // thus no need to update the status
     if ($('.toc-link').length === 0) {
@@ -502,7 +502,7 @@ $(function () {
     }
   }
 
-  function autoScrollToc (currentTop) {
+  function autoScrollToc(currentTop) {
     if ($('.toc-link').hasClass('active')) {
       var activePosition = $('.active').offset().top
       var sidebarScrolltop = $('#sidebar').scrollTop()
@@ -530,7 +530,7 @@ $(function () {
    * 字體調整
    */
 
-  function fontAdjust (name) {
+  function fontAdjust(name) {
     var fontSizeRecord = parseFloat($('body').css('font-size'))
     var preSizeRecord = parseFloat($('pre').css('font-size'))
     var codeSizeRecord = parseFloat($('code').css('font-size'))
@@ -634,15 +634,15 @@ $(function () {
     }
   }
 
-  function changeLightIcon () {
+  function changeLightIcon() {
     $('#darkmode').removeClass('fa-moon-o').addClass('fa-sun-o')
   }
 
-  function changeDarkIcon () {
+  function changeDarkIcon() {
     $('#darkmode').removeClass('fa-sun-o').addClass('fa-moon-o')
   }
 
-  function switchReadMode () {
+  function switchReadMode() {
     var nowMode = document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'light'
     if (nowMode === 'light') {
       changeLightIcon()
@@ -672,19 +672,42 @@ $(function () {
     // get user config
     var startDate = $('#webinfo-runtime-count').attr('start_date')
     var showDateTime = function () {
-      var BirthDay = new Date(startDate)
-      var today = new Date()
-      var timeold = (today.getTime() - BirthDay.getTime())
-      var msPerDay = 24 * 60 * 60 * 1000
-      var eDaysold = timeold / msPerDay
-      var daysold = Math.floor(eDaysold)
-      $('.webinfo-runtime-count').text(daysold + ' ' + GLOBAL_CONFIG.runtime_unit)
+      // old
+      // var BirthDay = new Date(startDate)
+      // var today = new Date()
+      // var timeold = (today.getTime() - BirthDay.getTime())
+      // var msPerDay = 24 * 60 * 60 * 1000
+      // var eDaysold = timeold / msPerDay
+      // var daysold = Math.floor(eDaysold)
+      // $('.webinfo-runtime-count').text(daysold + ' ' + GLOBAL_CONFIG.runtime_unit)
+
+      // me upload
+      var date1 = new Date(startDate);  //开始时间
+      var date2 = new Date();           //结束时间
+      var date3 = date2.getTime() - new Date(date1).getTime();   //时间差的毫秒数    
+      // 计算出相差天数
+      var days = Math.floor(date3 / (24 * 3600 * 1000))
+      //计算出小时数
+      var leave1 = date3 % (24 * 3600 * 1000)    //计算天数后剩余的毫秒数
+      var hours = Math.floor(leave1 / (3600 * 1000))
+      //计算相差分钟数
+      var leave2 = leave1 % (3600 * 1000)        //计算小时数后剩余的毫秒数
+      var minutes = Math.floor(leave2 / (60 * 1000))
+      //计算相差秒数
+      var leave3 = leave2 % (60 * 1000)      //计算分钟数后剩余的毫秒数
+      var seconds = Math.round(leave3 / 1000)
+      // alert(" 相差 " + days + "天 " + hours + "小时 " + minutes + " 分钟" + seconds + " 秒")
+      // $('.webinfo-runtime-count').attr("style", "font-size: 12px")
+      $('.webinfo-runtime-count').text(days + "天" + hours + "时" + minutes + "分" + seconds + "秒")
     }
 
     var interval
     showDateTime()
     clearInterval(interval)
-    interval = setInterval(showDateTime, 10000)
+    // old
+    // interval = setInterval(showDateTime, 10000)
+    // me upload
+    interval = setInterval(showDateTime, 1000)
   }
 
   /**
@@ -872,7 +895,7 @@ $(function () {
     }
   }
 
-  function openSearch () {
+  function openSearch() {
     $('body').css('width', '100%')
     $('body').css('overflow', 'hidden')
 
@@ -883,7 +906,7 @@ $(function () {
     $('.search-mask').fadeIn()
 
     // shortcut: ESC
-    document.addEventListener('keydown', function f (event) {
+    document.addEventListener('keydown', function f(event) {
       if (event.code === 'Escape') {
         closeSearch()
         document.removeEventListener('keydown', f)
@@ -891,7 +914,7 @@ $(function () {
     })
   }
 
-  function closeSearch () {
+  function closeSearch() {
     $('body').css('width', '')
     $('body').css('overflow', '')
     $('.search-dialog').css({
