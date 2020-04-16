@@ -158,9 +158,13 @@ html1 += '<span><a href="https://hexo.io/zh-cn/" target="_blank"> Hexo</a></span
 html1 += '<span><a href="https://github.com/jerryc127/hexo-theme-butterfly" target="_blank">Theme Butterfly</a></span><span class="footer-separator">|</span>'
 html1 += '<span><a href="https://github.com/gitalk/gitalk" target="_blank">Comment Gitalk</a><span class="footer-separator">|</span>'
 html1 += '<span><a href="https://github.com/" target="_blank">PicBed GitHub</a><span class="footer-separator">|</span>'
-html1 += '<span><a href="https://www.jsdelivr.com/" target="_blank">CDN jsdelivr</a>'
+html1 += '<span><a href="https://www.jsdelivr.com/" target="_blank">CDN jsdelivr</a><span class="footer-separator">|</span>'
 // html += '<img src="https://img.shields.io/badge/框架-Hexo-brightgreen.svg?style=flat" /> '
 // html += '<img src="https://img.shields.io/badge/主题 Butterfly-brightgreen.svg?style=flat" /> '
 // html += '<img src="https://img.shields.io/badge/图床 GitHub-brightgreen.svg?style=flat" />'
+// 又拍云
+// 20200416230208
+// 20200416230105
+html1 += '<span>Support <img height="28px" style="position: relative; top: 9px;" src="https://cdn.jsdelivr.net/gh/billwhite246/myPicBedRepo@master/img/20200416230208.png" /></span>'
 document.getElementById('who_powered').innerHTML = html1
 // Hexo | GitHub footer-separator
