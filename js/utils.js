@@ -165,6 +165,6 @@ html1 += '<span><a href="https://www.jsdelivr.com/" target="_blank">CDN jsdelivr
 // 又拍云
 // 20200416230208
 // 20200416230105
-html1 += '<span>Support <img height="28px" style="position: relative; top: 9px;" src="https://cdn.jsdelivr.net/gh/billwhite246/myPicBedRepo@master/img/20200416230208.png" /></span>'
+html1 += '<span><a href="https://www.upyun.com/" target="_blank">Support <img height="28px" style="position: relative; top: 9px;" src="https://cdn.jsdelivr.net/gh/billwhite246/myPicBedRepo@master/img/20200416230208.png" /></a></span>'
 document.getElementById('who_powered').innerHTML = html1
 // Hexo | GitHub footer-separator
