@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://blog.webpro.ltd/"/>
-  <updated>2020-05-08T12:04:25.686Z</updated>
+  <updated>2020-06-01T14:43:14.571Z</updated>
   <id>http://blog.webpro.ltd/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>怎么用电脑自带软件修改图片分辨率 修改尺寸</title>
+    <link href="http://blog.webpro.ltd/2020/06/01/changeImgSize/"/>
+    <id>http://blog.webpro.ltd/2020/06/01/changeImgSize/</id>
+    <published>2020-06-01T14:12:27.000Z</published>
+    <updated>2020-06-01T14:43:14.571Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="Powered-by-webpro-ltd"><a href="#Powered-by-webpro-ltd" class="headerlink" title="Powered by webpro.ltd"></a>Powered by webpro.ltd</h2><h2 id="本教程部分图片来源百度经验，仅供学习传播-https-jingyan-baidu-com-article-4d58d5415dba1f9dd5e9c048-html"><a href="#本教程部分图片来源百度经验，仅供学习传播-https-jingyan-baidu-com-article-4d58d5415dba1f9dd5e9c048-html" class="headerlink" title="本教程部分图片来源百度经验，仅供学习传播(https://jingyan.baidu.com/article/4d58d5415dba1f9dd5e9c048.html)"></a>本教程部分图片来源百度经验，仅供学习传播(<a href="https://jingyan.baidu.com/article/4d58d5415dba1f9dd5e9c048.html" target="_blank" rel="noopener">https://jingyan.baidu.com/article/4d58d5415dba1f9dd5e9c048.html</a>)</h2><blockquote><p>本教程使用win电脑自带的画图工具完成</p></blockquote><blockquote><p>如果照片比较大，打开后可按ctrl+滚轮进行比例缩放，调整到和屏幕尺寸相宜</p></blockquote><h2 id="工具"><a href="#工具" class="headerlink" title="工具"></a>工具</h2><blockquote><p>windows系统默认画图软件</p></blockquote><h2 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h2><h3 id="右击图片"><a href="#右击图片" class="headerlink" title="右击图片"></a>右击图片</h3><p><a href="https://cdn.jsdelivr.net/gh/billwhite246/myPicBedRepo@master/img/20200601222801.PNG" data-fancybox="group" data-caption class="fancybox"><img alt title data-src="https://cdn.jsdelivr.net/gh/billwhite246/myPicBedRepo@master/img/20200601222801.PNG" class="lazyload"></a></p><h3 id="点击-编辑"><a href="#点击-编辑" class="headerlink" title="点击 编辑"></a>点击 编辑</h3><p><a href="https://cdn.jsdelivr.net/gh/billwhite246/myPicBedRepo@master/img/20200601223801.JPG" data-fancybox="group" data-caption class="fancybox"><img alt title data-src="https://cdn.jsdelivr.net/gh/billwhite246/myPicBedRepo@master/img/20200601223801.JPG" class="lazyload"></a></p><h3 id="点击-重新调整大小"><a href="#点击-重新调整大小" class="headerlink" title="点击 重新调整大小"></a>点击 重新调整大小</h3><p><a href="https://cdn.jsdelivr.net/gh/billwhite246/myPicBedRepo@master/img/20200601223914.JPG" data-fancybox="group" data-caption class="fancybox"><img alt title data-src="https://cdn.jsdelivr.net/gh/billwhite246/myPicBedRepo@master/img/20200601223914.JPG" class="lazyload"></a></p><h3 id="输入水平或垂直百分比。"><a href="#输入水平或垂直百分比。" class="headerlink" title="输入水平或垂直百分比。"></a>输入水平或垂直百分比。</h3><ul><li><p>当勾选了 保持纵横比选项 ，软件会根据百分比和输入的水平或垂直自动调整图片尺寸。</p></li><li><p>取消勾选 保持纵横比选项 任意输入想要的水平 垂直 数值</p></li></ul><p><a href="https://cdn.jsdelivr.net/gh/billwhite246/myPicBedRepo@master/img/20200601224011.JPG" data-fancybox="group" data-caption class="fancybox"><img alt title data-src="https://cdn.jsdelivr.net/gh/billwhite246/myPicBedRepo@master/img/20200601224011.JPG" class="lazyload"></a></p><h3 id="点击-像素-，输入图片的分辨率（尺寸），即可转换为输入的尺寸，当勾选了保持纵横比是，软件会自动根据比例调整大小"><a href="#点击-像素-，输入图片的分辨率（尺寸），即可转换为输入的尺寸，当勾选了保持纵横比是，软件会自动根据比例调整大小" class="headerlink" title="点击 像素 ，输入图片的分辨率（尺寸），即可转换为输入的尺寸，当勾选了保持纵横比是，软件会自动根据比例调整大小"></a>点击 像素 ，输入图片的分辨率（尺寸），即可转换为输入的尺寸，当勾选了保持纵横比是，软件会自动根据比例调整大小</h3><p><a href="https://cdn.jsdelivr.net/gh/billwhite246/myPicBedRepo@master/img/20200601224026.JPG" data-fancybox="group" data-caption class="fancybox"><img alt title data-src="https://cdn.jsdelivr.net/gh/billwhite246/myPicBedRepo@master/img/20200601224026.JPG" class="lazyload"></a></p><h3 id="修改好后，点击确定，最后点击文件–-gt-保存按钮（ctrl-s），在软件下方还可看到图片此时的分辨率和大小"><a href="#修改好后，点击确定，最后点击文件–-gt-保存按钮（ctrl-s），在软件下方还可看到图片此时的分辨率和大小" class="headerlink" title="修改好后，点击确定，最后点击文件–&gt;保存按钮（ctrl+s），在软件下方还可看到图片此时的分辨率和大小"></a>修改好后，点击确定，最后点击文件–&gt;保存按钮（ctrl+s），在软件下方还可看到图片此时的分辨率和大小</h3><p><a href="https://cdn.jsdelivr.net/gh/billwhite246/myPicBedRepo@master/img/20200601224033.JPG" data-fancybox="group" data-caption class="fancybox"><img alt title data-src="https://cdn.jsdelivr.net/gh/billwhite246/myPicBedRepo@master/img/20200601224033.JPG" class="lazyload"></a></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;Powered-by-webpro-ltd&quot;&gt;&lt;a href=&quot;#Powered-by-webpro-ltd&quot; class=&quot;headerlink&quot; title=&quot;Powered by webpro.ltd&quot;&gt;&lt;/a&gt;Powered by webpro.ltd&lt;/
+      
+    
+    </summary>
+    
+    
+      <category term="windows10" scheme="http://blog.webpro.ltd/categories/windows10/"/>
+    
+    
+      <category term="画图" scheme="http://blog.webpro.ltd/tags/%E7%94%BB%E5%9B%BE/"/>
+    
+  </entry>
   
   <entry>
     <title>数据结构(C/C++版)</title>
@@ -550,30 +576,6 @@
       <category term="OCR" scheme="http://blog.webpro.ltd/tags/OCR/"/>
     
       <category term="图像识别" scheme="http://blog.webpro.ltd/tags/%E5%9B%BE%E5%83%8F%E8%AF%86%E5%88%AB/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>基于PHP+MySQL的小型网上商城系统</title>
-    <link href="http://blog.webpro.ltd/2018/01/24/php-shoping/"/>
-    <id>http://blog.webpro.ltd/2018/01/24/php-shoping/</id>
-    <published>2018-01-23T16:00:00.000Z</published>
-    <updated>2020-03-11T03:09:34.476Z</updated>
-    
-    <content type="html"><![CDATA[<p><em>Demo地址:</em> <a href="https://webpro.ltd/ycpos/member_login.php" target="_blank" rel="noopener">https://webpro.ltd/ycpos/member_login.php</a></p><blockquote><p>测试账户：账号-123,密码-123</p></blockquote>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;&lt;em&gt;Demo地址:&lt;/em&gt; &lt;a href=&quot;https://webpro.ltd/ycpos/member_login.php&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;https://webpro.ltd/ycpos/member_login
-      
-    
-    </summary>
-    
-    
-    
-      <category term="php" scheme="http://blog.webpro.ltd/tags/php/"/>
     
   </entry>
   
