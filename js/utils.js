@@ -107,7 +107,7 @@ window.isMobile = isMobile
 
 // ======================== 下面是自定义脚本 =======================
 
-// ======================== 节日倒计时 =======================
+// ======================== 春节倒计时 =======================
 
 if (document.getElementById('springFestival_time')) {
   var springFestival_time = document.getElementById('springFestival_time').innerHTML;
@@ -141,7 +141,7 @@ if (document.getElementById('springFestival_time')) {
 
 document.write('<div id="wnzz1"></div>');
 document.write('<script language=javascript src="https://pv.sohu.com/cityjson?ie=utf-8"></script>');
-document.write('<script language=javascript src="https://www.webpro.ltd/wnzz/js/wnzz-1000.js"></script>');
+document.write('<script language=javascript src="https://dev.webpro.ltd/wnzz/js/wnzz-1000.js"></script>');
 document.getElementById('wnzz1').style.display = "none";
 
 
@@ -165,6 +165,6 @@ html1 += '<span><a href="https://www.jsdelivr.com/" target="_blank">CDN jsdelivr
 // 又拍云
 // 20200416230208
 // 20200416230105
-html1 += '<span><a href="https://www.upyun.com/" target="_blank">Support <img height="28px" style="position: relative; top: 9px;" src="https://cdn.jsdelivr.net/gh/billwhite246/myPicBedRepo@master/img/20200416230208.png" /></a></span>'
+html1 += '<span><a href="https://console.upyun.com/register/?invite=ryCq2nL_8" target="_blank">Support <img height="28px" style="position: relative; top: 9px;" src="https://cdn.jsdelivr.net/gh/billwhite246/myPicBedRepo@master/img/20200416230208.png" /></a></span>'
 document.getElementById('who_powered').innerHTML = html1
 // Hexo | GitHub footer-separator
