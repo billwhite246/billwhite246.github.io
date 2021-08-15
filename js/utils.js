@@ -174,7 +174,9 @@ var html1 = "";
 // html1 += '<span><a href="https://www.jsdelivr.com/" target="_blank"><img style="border-radius: 8px; height: 20px;" src="https://img.webpro.ltd/picbed/img/20200312230551.png" /></a></span>'
 // html1 += '</div>'
 html1 +=
-  'E-mail: <a href="mailto:billwhite246@gmail.com">billwhite246@gmail.com</a><br/>';
+  'E-mail: <a href="mailto:scompany@vip.qq.com">scompany@vip.qq.com</a> / ';
+html1 +=
+  '<a href="mailto:billwhite246@gmail.com">billwhite246@gmail.com</a><br/>';
 html1 +=
   '<span><a href="https://hexo.io/zh-cn/" target="_blank"> Hexo</a></span><span class="footer-separator">|</span>';
 html1 +=
@@ -195,3 +197,14 @@ html1 +=
   '<span><a href="https://console.upyun.com/register/?invite=ryCq2nL_8" target="_blank">Support <img height="28px" style="position: relative; top: 9px;" src="https://img.webpro.ltd/picbed/img/20200416230208.png" /></a></span>';
 document.getElementById("who_powered").innerHTML = html1;
 // Hexo | GitHub footer-separator
+
+// 电脑端responsiveImg属性的图片自动缩小到60%
+function autoImgSize() {
+  var itemArr = document.getElementsByClassName("responsiveImg");
+  if (!isMobile()) {
+    for (var i = 0; i < itemArr.length; i++) {
+      itemArr[i].style = "width: 60%;";
+    }
+  }
+}
+autoImgSize();
