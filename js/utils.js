@@ -186,15 +186,25 @@ html1 +=
 html1 +=
   '<span><a href="https://github.com/" target="_blank">PicBed GitHub</a><span class="footer-separator">|</span>';
 html1 +=
-  '<span><a href="https://www.jsdelivr.com/" target="_blank">CDN jsdelivr</a><span class="footer-separator">|</span>';
+  '<span><a href="https://www.jsdelivr.com/" target="_blank">CDN jsdelivr</a><span class="footer-separator"><br/></span>';
 // html += '<img src="https://img.shields.io/badge/框架-Hexo-brightgreen.svg?style=flat" /> '
 // html += '<img src="https://img.shields.io/badge/主题 Butterfly-brightgreen.svg?style=flat" /> '
 // html += '<img src="https://img.shields.io/badge/图床 GitHub-brightgreen.svg?style=flat" />'
 // 又拍云
 // 20200416230208
 // 20200416230105
+
+// 申请又拍云联盟
+// 申请又拍云联盟
+// 申请又拍云联盟
+// html1 +=
+//   '<span><a href="https://console.upyun.com/register/?invite=ryCq2nL_8" target="_blank">Support <img height="28px" style="position: relative; top: 9px;" src="https://img.webpro.ltd/picbed/img/20200416230208.png" /></a></span>';
 html1 +=
-  '<span><a href="https://console.upyun.com/register/?invite=ryCq2nL_8" target="_blank">Support <img height="28px" style="position: relative; top: 9px;" src="https://img.webpro.ltd/picbed/img/20200416230208.png" /></a></span>';
+  '<span><a href="https://www.upyun.com/?utm_source=lianmeng&utm_medium=referral" target="_blank">';
+html1 +=
+  '本站由 <img height="28px" style="position: relative; top: 9px;" src="https://img.webpro.ltd/picbed/img/20200416230208.png" />';
+html1 += " 提供CDN加速/云存储服务</a></span>";
+
 document.getElementById("who_powered").innerHTML = html1;
 // Hexo | GitHub footer-separator
 
